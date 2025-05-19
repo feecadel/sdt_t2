@@ -1,5 +1,7 @@
 #include <iostream>
-#include <iomanip>  // for setw
+#include <iomanip>   // for setw
+#include <cstdlib>   // for rand, srand
+#include <ctime>     // for time
 
 using namespace std;
 
@@ -12,24 +14,27 @@ int main() {
     cout << "Enter number of columns: ";
     cin >> cols;
 
+    // Seed the random number generator with the current time
+    srand(time(0));
+
     // Create a dynamic 2D array
     int** table = new int* [rows];
     for (int i = 0; i < rows; ++i) {
         table[i] = new int[cols];
     }
 
-    // Fill the table with values
+    // Fill the table with random values from 0 to 99
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
-            table[i][j] = (i + 1) * (j + 1);  // just an example: multiplication table
+            table[i][j] = rand() % 100;  // random number from 0 to 99
         }
     }
 
     // Output the table
-    cout << "\nGenerated Table:\n";
+    cout << "\nRandom Table:\n";
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
-            cout << setw(5) << table[i][j];  // setw(5) sets a width of 5 for each printed value
+            cout << setw(5) << table[i][j];  // set column width
         }
         cout << endl;
     }
