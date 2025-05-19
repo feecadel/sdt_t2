@@ -18,6 +18,25 @@ int main() {
     // Seed the random number generator
     srand(time(0));
 
+	// Validate input
+	if (rows <= 0 || cols <= 0) {
+		cout << "Invalid input. Rows and columns must be positive integers." << endl;
+		return 1;
+	}
+	
+	// Validate input for maximum size
+	if (rows > 100 || cols > 100) {
+		cout << "Invalid input. Rows and columns must not exceed 100." << endl;
+		return 1;
+	}
+
+	// Validate input for minimum size
+	if (rows < 1 || cols < 1) {
+		cout << "Invalid input. Rows and columns must be at least 1." << endl;
+		return 1;
+	}
+
+
     // Create a dynamic 2D array
     int** table = new int* [rows];
     for (int i = 0; i < rows; ++i) {
