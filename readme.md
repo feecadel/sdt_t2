@@ -1,1 +1,2 @@
-TWELVE POINTS FROM UKRAINE GO TO UKRAINE
+<<<<<<< HEAD
+2025 is the worst Eurovision ever.
